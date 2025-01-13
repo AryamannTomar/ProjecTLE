@@ -25,9 +25,32 @@ int helper(int i,int j,int m, int n, vector<vector<int>>& grid, vector<vector<in
 3 Max Adjacent Sum
 */
 
-int main(){
-    int n=40;
-    for(int i=0;i<=40;i++) dp[i]=-1;
-    cout<<fibo(n)<<endl;
-    return 0;
+/*
+M1
+dp[i]=max(a[i]+dp(i+2),dp(i+1));
+ans=dp[0]
+*/
+int fn(int i, int n, vector<int>& nums, vector<int>& dp){
+    if(i>n-1) return 0;
+    if(dp[i]!=-1) return dp[i];
+    return dp[i]=max(nums[i]+fn(i+2,n,nums,dp),fn(i+1,n,nums,dp));
 }
+
+/*
+M2
+state
+dp[i][0] dont pick ith element
+dp[i][1] pick ith element
+
+transition eqn
+dp[i][0] : dp[i+1][0] or dp[i+1][1]
+dp[i][1] : a[i]+dp[i+1][0]
+
+trivial case
+dp[n-1][0]=0
+dp[n-1][1]=a[n-1]
+
+ans=max(dp[0][0],dp[0][1])
+*/
+
+// ***************************************************************************************************************************************
