@@ -1,15 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int x=0;
-int helper(int i,int j,int m, int n, vector<vector<int>>& grid, vector<vector<int>>& dp){
-    x++;
-    if((i>m-1)||(j>n-1)) return INT_MAX;
-    if((i==m-1)&(j==n-1)) return grid[i][j];
-    if(dp[i][j]!=-1) return dp[i][j];
-    return dp[i][j]=grid[i][j]+min(helper(i+1,j,m,n,grid,dp),helper(i,j+1,m,n,grid,dp));
-}
-
 int x1=0;
 int helper1(int i,int j,int m, int n, vector<vector<int>>& grid, vector<vector<int>>& dp){
     x1++;
