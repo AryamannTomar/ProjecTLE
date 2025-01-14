@@ -1,7 +1,14 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-int main(){
+/*
+1 Book Shop [KnapSack Problem]
+Find out which subset of books has a total Price<=X and total no. of pages is maximised
+
+Stater
+*/
+
+int solve(){
     int n,x;
     cin>>n>>x;
     vector<vector<int>> dp(n+1,vector<int>(x+1,0));
@@ -18,7 +25,6 @@ int main(){
         }
     }
     cout<<dp[0][x]<<endl;
-
-
-    return 0;
 }
+
+// ***************************************************************************************************************************************
